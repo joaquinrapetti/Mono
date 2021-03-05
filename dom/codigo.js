@@ -1,4 +1,4 @@
-alert("Empiezan a aparecer los conocedores");
+alert("Prueba");
 var ruta = window.location;
 console.log(ruta);
 document.write("Estás en: " + ruta);
