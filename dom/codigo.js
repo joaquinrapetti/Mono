@@ -1,16 +1,49 @@
 alert("Prueba");
 var fondoImagen = document.getElementById("fondoMono");
-var papel = vp.getContext("2d");
-var mapa = "tile.png";
+var papel = fondoImagen.getContext("2d");
 
-var fondo = new Image();
-fondo.src = mapa;
-fondo.addEventListener("load", dibujar); 
+var fondo = {
+    url: "tile.png",
+    cargaOk: false
+}
+
+var logo = {
+    url: "Mlogo.png",
+    caraOk: false
+}
+
+fondo.imagen = new Image();
+fondo.imagen.src = fondo.url;
+fondo.imagen.addEventListener("load", cargarFondo); 
+
+logo.imagen = new Image();
+logo.imagen.src = logo.url;
+logo.imagen.addEventListener("load", cargarLogo);
+
+function cargarFondo()
+{
+    fondo.cargaOk = true;
+    dibujar();
+}
+
+function cargarLogo()
+{
+    logo.cargaOk = true;
+    dibujar();
+}
 
 function dibujar()
 {
-    papel.drawImage(fondo, 0, 0);
+    if(fondo.cargaOk)
+    {
+        papel.drawImage(fondo.imagen, 0, 0);
+    }
+    if(logo.cargaOk)
+    {
+        papel.drawImage(logo.imagen, 15, 55);
+    }
 }
+
 
 function aleatorio(min, maxi)
 {
