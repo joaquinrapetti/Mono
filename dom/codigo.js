@@ -11,6 +11,7 @@ var logo = {
     url: "Mlogo.png",
     caraOk: false
 }
+var cantidad = aleatorio(5, 25)
 
 fondo.imagen = new Image();
 fondo.imagen.src = fondo.url;
@@ -40,7 +41,13 @@ function dibujar()
     }
     if(logo.cargaOk)
     {
-        papel.drawImage(logo.imagen, 15, 55);
+        console.log (cantidad)
+        for(var v=0; v < cantidad; v++)
+        {
+            var x = aleatorio (0, 420)
+            var y = aleatorio (0, 420)
+            papel.drawImage(logo.imagen, x, y);
+        }
     }
 }
 
